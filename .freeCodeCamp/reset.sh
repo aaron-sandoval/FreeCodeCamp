@@ -16,3 +16,9 @@ sudo chown -R postgres:postgres /var/lib/postgresql/12/main
 sudo service postgresql stop
 sudo service postgresql start
 echo "SELECT 'CREATE USER freecodecamp WITH CREATEDB' WHERE NOT EXISTS (SELECT FROM pg_catalog.pg_roles WHERE rolname='freecodecamp')\gexec" | psql -U postgres -X
+
+# Rebuild database
+psql -U postgres < ./.freeCodeCamp/reset_files/db.sql
+cp ./.freeCodeCamp/reset_files/insert_data.sh .
+cp ./.freeCodeCamp/reset_files/courses_test.csv .
+cp ./.freeCodeCamp/reset_files/students_test.csv .
