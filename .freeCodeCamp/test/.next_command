@@ -6,3 +6,6 @@ history -a
 touch questionnaire.sh
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+sh questionnaire.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
