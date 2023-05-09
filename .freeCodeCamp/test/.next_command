@@ -17,3 +17,6 @@ history -a
 bash questionnaire.sh
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+which bash
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
