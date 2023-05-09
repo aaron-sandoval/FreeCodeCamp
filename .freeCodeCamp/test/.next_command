@@ -26,3 +26,6 @@ history -a
 ls --color=auto -l
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+chmod +x questionnaire.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
