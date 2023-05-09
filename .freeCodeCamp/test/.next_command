@@ -88,3 +88,9 @@ history -a
 touch countdown.sh
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+man echo
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
+chmod +x countdown.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
