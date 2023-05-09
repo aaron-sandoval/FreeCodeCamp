@@ -189,3 +189,7 @@ history -a
 help test
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+[[ -a countdown.sh ]]
+echo $?
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
