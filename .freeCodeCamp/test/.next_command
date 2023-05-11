@@ -367,3 +367,6 @@ history -a
 echo $J
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+echo $(( J*5+25 ))
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
