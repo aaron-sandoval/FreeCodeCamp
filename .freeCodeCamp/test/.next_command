@@ -502,3 +502,11 @@ history -a
 echo $VAR
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+[[ "hello world" == $VAR ]]
+echo $?
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
+[[ $VAR == "hello world" ]]
+echo $?
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
