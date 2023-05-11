@@ -457,3 +457,6 @@ history -a
 help
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+help until
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
