@@ -427,3 +427,6 @@ history -a
 ARR=("a" "b" "c")
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+echo ${ARR[1]}
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
