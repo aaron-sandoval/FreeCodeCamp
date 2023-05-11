@@ -310,3 +310,6 @@ history -a
 declare -p
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+echo $RANDOM
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
