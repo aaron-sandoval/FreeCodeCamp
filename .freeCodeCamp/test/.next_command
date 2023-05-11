@@ -355,3 +355,9 @@ history -a
 echo $(( I+4 ))
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+echo I
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
+echo $I
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
