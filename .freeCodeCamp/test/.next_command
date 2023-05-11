@@ -385,3 +385,6 @@ history -a
 echo $(( RANDOM%75 ))
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+echo $(( RANDOM%75+1 ))
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
