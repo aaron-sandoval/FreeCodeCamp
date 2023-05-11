@@ -439,3 +439,6 @@ history -a
 declare -p ARR
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+./fortune.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
