@@ -548,3 +548,6 @@ history -a
 help type
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+type echo
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
