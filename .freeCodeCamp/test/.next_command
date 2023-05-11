@@ -260,3 +260,13 @@ history -a
 ./countdown.sh 5
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
+ls --color=auto
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
+touch bingo.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
