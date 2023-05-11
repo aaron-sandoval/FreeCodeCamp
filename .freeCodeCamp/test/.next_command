@@ -563,3 +563,6 @@ history -a
 type bash
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+type psql
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
