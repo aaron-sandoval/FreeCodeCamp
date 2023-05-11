@@ -313,3 +313,9 @@ history -a
 echo $RANDOM
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+./bingo.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
+./bingo.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
