@@ -493,3 +493,6 @@ history -a
 echo $?
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+VAR="hello world"
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
