@@ -569,3 +569,4 @@ history -a
 type ./five.sh
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+exit
