@@ -400,3 +400,9 @@ history -a
 help let
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+./bingo.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
+./bingo.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
