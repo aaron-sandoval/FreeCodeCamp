@@ -376,3 +376,6 @@ history -a
 declare -p
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+declare -p J
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
