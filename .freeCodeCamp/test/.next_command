@@ -418,3 +418,6 @@ history -a
 touch fortune.sh
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+chmod +x fortune.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
