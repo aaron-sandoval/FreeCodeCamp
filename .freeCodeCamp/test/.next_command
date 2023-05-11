@@ -557,3 +557,6 @@ history -a
 type if
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+type then
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
