@@ -15,3 +15,6 @@ history -a
 chmod +x insert_data.sh
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+./insert_data.sh
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
