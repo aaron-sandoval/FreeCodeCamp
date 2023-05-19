@@ -63,3 +63,6 @@ history -a
 rm students_test.csv
 echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
 history -a
+rm courses_test.csv
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
