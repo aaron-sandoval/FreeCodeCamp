@@ -1,0 +1,2 @@
+echo $PWD >> ~/project/.freeCodeCamp/test/.cwd
+history -a
