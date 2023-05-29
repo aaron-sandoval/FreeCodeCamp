@@ -17,7 +17,7 @@ echo -e "\nAverage number of goals in all games from the winning teams rounded t
 echo "$($PSQL "SELECT ROUND(AVG(winner_goals), 2) FROM games")"
 
 echo -e "\nAverage number of goals in all games from both teams:"
-echo "$($PSQL "SELECT AVG(winner_goals)+AVG(opponent_goals) FROM games")"
+echo "$($PSQL "SELECT CAST(AVG(winner_goals)+AVG(opponent_goals) AS DECIMAL(18,16)) FROM games")"
 
 echo -e "\nMost goals scored in a single game by one team:"
 echo "$($PSQL "SELECT MAX(winner_goals) FROM games")"
@@ -35,10 +35,10 @@ echo -e "\nList of teams who played in the 2014 'Eighth-Final' round:"
 echo "$($PSQL "SELECT T.name FROM games G, teams T WHERE year=2014 AND round='Eighth-Final' AND (G.winner_id=T.team_id OR G.opponent_id=T.team_id) ORDER BY T.name;")"
 
 echo -e "\nList of unique winning team names in the whole data set:"
-echo
+echo "$($PSQL "SELECT DISTINCT T.name FROM games G, teams T WHERE G.winner_id=T.team_id ORDER BY T.name;")"
 
 echo -e "\nYear and team name of all the champions:"
-echo
+echo "$($PSQL "SELECT G.year, T.name FROM games G, teams T WHERE G.winner_id=T.team_id and round='Final' ORDER BY year;")"
 
 echo -e "\nList of teams that start with 'Co':"
-echo
+echo "$($PSQL "SELECT name FROM teams WHERE name LIKE 'Co%';")"
