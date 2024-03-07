@@ -1,17 +1,11 @@
 #! /bin/bash
-PSQL="psql --username=freecodecamp --dbname=salon -c "
-
-
+PSQL="psql -X --username=freecodecamp --dbname=salon --tuples-only -c"
 SERVICES=$($PSQL "SELECT * FROM services;")
 
 MAIN_MENU() {
   # Print services
   echo "$SERVICES" | while read SERVICE_ID BAR SERVICE_NAME
   do
-    if [[ ! $SERVICE_ID =~ ^[0-9]+$ ]]
-    then
-      continue
-    fi
     echo -e "$SERVICE_ID) $SERVICE_NAME"
   done
   # Get user input
@@ -36,6 +30,8 @@ MAIN_MENU() {
 }
 
 BOOKING() {
+  SERVICE_ID=$1
+  echo "You picked a $SERVICE_ID"
   echo "Enter your phone: "
   read CUSTOMER_PHONE
   # If phone not already in db
@@ -46,18 +42,29 @@ BOOKING() {
     echo "Enter your name: "
     read CUSTOMER_NAME
     # Add new customer to db
-    $($PSQL "INSERT INTO customers(phone, name) VALUES('$CUSTOMER_PHONE', '$CUSTOMER_NAME');")
+    RESULT=$($PSQL "INSERT INTO customers(phone, name) VALUES('$CUSTOMER_PHONE', '$CUSTOMER_NAME');")
+  else
+    CUSTOMER_NAME=$($PSQL "SELECT name from customers where phone='$CUSTOMER_PHONE';")
+    # Strip whitespace from db query result
+    CUSTOMER_NAME=$(echo $CUSTOMER_NAME | sed -E 's/ *$|^ *//g')
   fi
   # Get customer ID
-  CUSTOMER_IDS=$($PSQL "SELECT customer_id from customers where phone='$CUSTOMER_PHONE';")
-  # echo $CUSTOMER_IDS | while read 
-  echo $CUSTOMER_IDS
+  CUSTOMER_ID=$($PSQL "SELECT customer_id from customers where phone='$CUSTOMER_PHONE';")
+  # Strip whitespace from db query result
+  CUSTOMER_ID=$(echo $CUSTOMER_ID | sed -E 's/ *$|^ *//g')
+  # echo $CUSTOMER_IDS | while read CUSTOMER_ID
+  # echo $CUSTOMER_ID
   # Prompt time
   echo "What time for your appointment?"
   read SERVICE_TIME
   # Create new appointment
-  $($PSQL "INSERT INTO appointments()")
+  # echo "'$CUSTOMER_ID', '$SERVICE_TIME', '$SERVICE_ID'"
+  RESULT=$($PSQL "INSERT INTO appointments(customer_id, time, service_id) VALUES('$CUSTOMER_ID', '$SERVICE_TIME', '$SERVICE_ID');")
   # Print message
+  SERVICE=$($PSQL "SELECT name from services where service_id='$SERVICE_ID';")
+  # Strip whitespace from db query result
+  SERVICE=$(echo $SERVICE | sed -E 's/ *$|^ *//g')
+  echo "I have put you down for a $SERVICE at $SERVICE_TIME, $CUSTOMER_NAME."
 }
 
 MAIN_MENU
