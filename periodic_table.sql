@@ -65,7 +65,8 @@ CREATE TABLE public.properties (
     type character varying(30),
     atomic_mass numeric(9,6) NOT NULL,
     melting_point_celsius numeric NOT NULL,
-    boiling_point_celsius numeric NOT NULL
+    boiling_point_celsius numeric NOT NULL,
+    type_id integer
 );
 
 
@@ -131,28 +132,31 @@ INSERT INTO public.elements VALUES (1000, 'mT', 'moTanium');
 -- Data for Name: properties; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.properties VALUES (1, 'nonmetal', 1.008000, -259.1, -252.9);
-INSERT INTO public.properties VALUES (2, 'nonmetal', 4.002600, -272.2, -269);
-INSERT INTO public.properties VALUES (3, 'metal', 6.940000, 180.54, 1342);
-INSERT INTO public.properties VALUES (4, 'metal', 9.012200, 1287, 2470);
-INSERT INTO public.properties VALUES (5, 'metalloid', 10.810000, 2075, 4000);
-INSERT INTO public.properties VALUES (6, 'nonmetal', 12.011000, 3550, 4027);
-INSERT INTO public.properties VALUES (7, 'nonmetal', 14.007000, -210.1, -195.8);
-INSERT INTO public.properties VALUES (8, 'nonmetal', 15.999000, -218, -183);
-INSERT INTO public.properties VALUES (1000, 'metalloid', 1.000000, 10, 100);
+INSERT INTO public.properties VALUES (1, 'nonmetal', 1.008000, -259.1, -252.9, NULL);
+INSERT INTO public.properties VALUES (2, 'nonmetal', 4.002600, -272.2, -269, NULL);
+INSERT INTO public.properties VALUES (3, 'metal', 6.940000, 180.54, 1342, NULL);
+INSERT INTO public.properties VALUES (4, 'metal', 9.012200, 1287, 2470, NULL);
+INSERT INTO public.properties VALUES (5, 'metalloid', 10.810000, 2075, 4000, NULL);
+INSERT INTO public.properties VALUES (6, 'nonmetal', 12.011000, 3550, 4027, NULL);
+INSERT INTO public.properties VALUES (7, 'nonmetal', 14.007000, -210.1, -195.8, NULL);
+INSERT INTO public.properties VALUES (8, 'nonmetal', 15.999000, -218, -183, NULL);
+INSERT INTO public.properties VALUES (1000, 'metalloid', 1.000000, 10, 100, NULL);
 
 
 --
 -- Data for Name: types; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.types VALUES (1, 'metal');
+INSERT INTO public.types VALUES (2, 'metalloid');
+INSERT INTO public.types VALUES (3, 'nonmetal');
 
 
 --
 -- Name: types_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.types_type_id_seq', 1, false);
+SELECT pg_catalog.setval('public.types_type_id_seq', 3, true);
 
 
 --
@@ -196,11 +200,27 @@ ALTER TABLE ONLY public.properties
 
 
 --
+-- Name: types types_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.types
+    ADD CONSTRAINT types_pkey PRIMARY KEY (type_id);
+
+
+--
 -- Name: properties properties_atomic_number_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.properties
     ADD CONSTRAINT properties_atomic_number_fkey FOREIGN KEY (atomic_number) REFERENCES public.elements(atomic_number);
+
+
+--
+-- Name: properties properties_type_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.properties
+    ADD CONSTRAINT properties_type_id_fkey FOREIGN KEY (type_id) REFERENCES public.types(type_id);
 
 
 --
