@@ -8,24 +8,13 @@ PSQL2="psql --username=freecodecamp --dbname=periodic_table --tuples-only -c"
 # do
 #   echo -e "$TYPE"
 # done
-EXTRACT_TYPES="
-  do
-  $$
-  declare
-      f RECORD;
-  begin
-      for f in select type_id, type 
-            from types 
-            order by type_id
-      loop 
-        UPDATE properties SET type_id=f.type_id WHERE type=f.type;
-      end loop;
-  end;
-  $$;"
-# }
-
-# OUT=$($PSQL $EXTRACT_TYPES)
-# echo $OUT
+EXTRACT_TYPES() {
+  A=$($PSQL "UPDATE properties SET type_id=1 WHERE type='metal';")
+  A=$($PSQL "UPDATE properties SET type_id=2 WHERE type='metalloid';")
+  A=$($PSQL "UPDATE properties SET type_id=3 WHERE type='nonmetal';")
+  A=$($PSQL "ALTER TABLE properties ALTER COLUMN type_id SET NOT NULL;")
+  A=$($PSQL "ALTER TABLE properties ADD FOREIGN KEY(type_id) REFERENCES types(type_id);")
+}
 
 CAPITALIZE_SYMBOLS(){
   # Get space-delimited string of symbols
@@ -43,4 +32,5 @@ CAPITALIZE_SYMBOLS(){
   done
 }
 
+EXTRACT_TYPES
 # CAPITALIZE_SYMBOLS
