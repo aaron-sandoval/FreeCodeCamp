@@ -50,7 +50,7 @@ SET default_table_access_method = heap;
 CREATE TABLE public.appointments (
     appointment_id integer NOT NULL,
     customer_id integer,
-    "time" character varying(5),
+    "time" character varying(10),
     service_id integer
 );
 
@@ -197,14 +197,14 @@ INSERT INTO public.services VALUES (3, 'Dye');
 -- Name: appointments_appointment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 2, true);
+SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 8, true);
 
 
 --
 -- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.customers_customer_id_seq', 11, true);
+SELECT pg_catalog.setval('public.customers_customer_id_seq', 21, true);
 
 
 --
